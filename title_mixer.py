@@ -6,4 +6,5 @@ def mixer(game_name, misconduct):
         game_array.append(misconduct)
     placement = random.randint(0, len(game_array)) ##picks a random word in the game title for the misconduct to replace
     game_array[placement] = misconduct
-    return game_array
+    mixed_game_name = game_array.join(" ")
+    return mixed_game_name
