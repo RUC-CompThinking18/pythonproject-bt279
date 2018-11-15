@@ -10,8 +10,9 @@ def mixer(game_name, misconduct):
     game_array = game_name.split(" ") ##splits the game name into an array
     if len(game_array) == 1: ##if the game title only has 1 word in it, it puts the misconduct at the end of it
         game_array.append(misconduct)
-    placement = random.randint(0, len(game_array) - 1) ##picks a random word in the game title for the misconduct to replace
-    game_array[placement] = misconduct ##puts the misconduct in the randomly assigned place
+    else:    
+        placement = random.randint(0, len(game_array) - 1) ##picks a random word in the game title for the misconduct to replace
+        game_array[placement] = misconduct ##puts the misconduct in the randomly assigned place
     mixed_game_name = " ".join(game_array) ##joins the list back into a string and saves it as a variable
     print(mixed_game_name)
 
