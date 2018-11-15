@@ -12,7 +12,7 @@ def mixer(game_name, misconduct):
         game_array.append(misconduct)
     placement = random.randint(0, len(game_array)) ##picks a random word in the game title for the misconduct to replace
     game_array[placement] = misconduct
-    mixed_game_name = game_array.join(" ")
+    mixed_game_name = " ".join(game_array)
     return mixed_game_name
 
 def bot():
@@ -22,4 +22,10 @@ def bot():
     result = igdb.games(random_game) ##uses the random in as an id for a game
     for game in result.body:
         chosen_game = game["name"] ##stores the game name as it's own variable
+    misconduct_list = ["Overwork", "No Severence Pay", "Losing Sleep", "No Time For Family", "Pizza As Payment"]
+    chosen_misconduct = misconduct_list[random.randint(0, len(misconduct_list) - 1)]
+    return mixer(str(chosen_game), str(chosen_misconduct))
+
+bot()
+
     
