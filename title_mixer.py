@@ -28,8 +28,7 @@ def bot():
         "Test Monkey"] ##pretty self explanatory
     chosen_misconduct = misconduct_list[random.randint(0, len(misconduct_list) - 1)] ##chooses something form the list at random
     return mixer(chosen_game, chosen_misconduct) ##calls the mixer function defined above
-
-bot()
+print("This code will mix various game titles with various misconducts that the video game industry has done to take advantage of its employees: \n")
 def cant_stop_wont_stop():
     """Has the code run every 10 seconds so it'll produce a new combination indefinitely 
     until you manually stop the code """
