@@ -1,4 +1,5 @@
 import random
+import threading
 from igdb_api_python.igdb import igdb ##getting access to the igdb video game database
 
 igdb = igdb("dc4da56a02c6038e2ea17b7b1ff4ce7d") ##key for using api
@@ -23,12 +24,20 @@ def bot():
     result = igdb.games(random_game) ##uses the random in as an id for a game
     for game in result.body: ##this is how the api works to grab a game title, not fully sure how it works under the hood
         chosen_game = game["name"] ##stores the game name as it's own variable
-    misconduct_list = ["Overwork", "No Severence Pay", "Losing Sleep", "No Time For Family", "Pizza As Payment"] ##pretty self explanatory
+    misconduct_list = ["Overwork", "No Severence Pay", "Losing Sleep", "No Time For Family", "Pizza As Payment", 
+        "Test Monkey"] ##pretty self explanatory
     chosen_misconduct = misconduct_list[random.randint(0, len(misconduct_list) - 1)] ##chooses something form the list at random
     return mixer(chosen_game, chosen_misconduct) ##calls the mixer function defined above
 
-
 bot()
+def cant_stop_wont_stop():
+    """Has the code run every 10 seconds so it'll produce a new combination indefinitely 
+    until you manually stop the code """
+    threading.Timer(10.0, cant_stop_wont_stop).start() ##creates the timer itself so this function will be called every 10 seconds
+    bot() ##the function I need the timer for
+
+cant_stop_wont_stop()
+
 
 
     
