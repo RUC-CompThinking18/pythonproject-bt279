@@ -25,7 +25,7 @@ def bot():
     for game in result.body: ##this is how the api works to grab a game title, not fully sure how it works under the hood
         chosen_game = game["name"] ##stores the game name as it's own variable
     misconduct_list = ["Overwork", "No Severence Pay", "Losing Sleep", "No Time For Family", "Pizza As Payment", 
-        "Test Monkey"] ##pretty self explanatory
+        "Test Monkey", "Under Paid", "No Healthcare", "100 Hour Weeks", "Lay Off", "Crunch", "Abuse of Power"] ##pretty self explanatory
     chosen_misconduct = misconduct_list[random.randint(0, len(misconduct_list) - 1)] ##chooses something form the list at random
     return mixer(chosen_game, chosen_misconduct) ##calls the mixer function defined above
 print("This code will mix various game titles with various misconducts that the video game industry has done to take advantage of its employees: \n")
